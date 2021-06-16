@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "serve": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -24,6 +25,8 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "postcss": "^8.3.4",
     "postcss-loader": "^6.1.0",
     "postcss-preset-env": "^6.7.0",
@@ -39,5 +42,10 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
 }
