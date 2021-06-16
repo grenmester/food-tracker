@@ -10,7 +10,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(css|scss)$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
         use: "babel-loader",
       },
@@ -21,4 +25,8 @@ module.exports = {
       template: "src/index.html",
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
+  target: "web",
 };
