@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 const App = () => (
   <div>
-    <Header />
+    <Navbar />
     <main>
       <div className="container">
         <p>Food Tracker</p>
