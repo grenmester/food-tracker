@@ -11,17 +11,39 @@ const App = () => {
   const [inventoryList, setInventoryList] = useState([]);
   const [wishList, setWishList] = useState([]);
 
-  const addInventoryItem = ({ title, quantity, location, tags, date, image }) =>
+  const addInventoryItem = ({
+    id,
+    title,
+    quantity,
+    location,
+    tags,
+    date,
+    image,
+  }) =>
     setInventoryList([
       ...inventoryList,
-      { title, quantity, location, tags, date, image },
+      { id, title, quantity, location, tags, date, image },
     ]);
 
-  const addWishItem = ({ title, quantity, location, tags, person, image }) =>
+  const addWishItem = ({
+    id,
+    title,
+    quantity,
+    location,
+    tags,
+    person,
+    image,
+  }) =>
     setWishList([
       ...wishList,
-      { title, quantity, location, tags, person, image },
+      { id, title, quantity, location, tags, person, image },
     ]);
+
+  const deleteInventoryItem = (id) =>
+    setInventoryList(inventoryList.filter((item) => item.id !== id));
+
+  const deleteWishItem = (id) =>
+    setWishList(wishList.filter((item) => item.id !== id));
 
   return (
     <div>
@@ -30,7 +52,10 @@ const App = () => {
         <div className="container">
           <h1 className="mb-4">Food Tracker</h1>
           <section className="mb-5" id="inventory-list">
-            <InventoryList inventoryList={inventoryList} />
+            <InventoryList
+              inventoryList={inventoryList}
+              deleteInventoryItem={deleteInventoryItem}
+            />
             <div className="d-flex justify-content-center mt-3">
               <a
                 href="#"
@@ -44,7 +69,7 @@ const App = () => {
             <InventoryForm addInventoryItem={addInventoryItem} />
           </section>
           <section className="mb-5" id="wish-list">
-            <WishList wishList={wishList} />
+            <WishList wishList={wishList} deleteWishItem={deleteWishItem} />
             <div className="d-flex justify-content-center mt-3">
               <a
                 href="#"

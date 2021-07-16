@@ -12,6 +12,7 @@ const InventoryForm = ({ addInventoryItem }) => {
     e.preventDefault();
 
     addInventoryItem({
+      id: Math.random(),
       title,
       quantity: quantity && parseInt(quantity) > 0 ? parseInt(quantity) : 0,
       location,

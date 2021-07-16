@@ -12,6 +12,7 @@ const WishForm = ({ addWishItem }) => {
     e.preventDefault();
 
     addWishItem({
+      id: Math.random(),
       title,
       quantity: quantity && parseInt(quantity) > 0 ? parseInt(quantity) : 0,
       location,

@@ -1,7 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-const WishItem = ({ image, title, quantity, location, tags, person }) => (
+const WishItem = ({
+  id,
+  image,
+  title,
+  quantity,
+  location,
+  tags,
+  person,
+  deleteWishItem,
+}) => (
   <article className="d-flex py-2 border-bottom">
     <div>
       {image ? (
@@ -43,19 +52,26 @@ const WishItem = ({ image, title, quantity, location, tags, person }) => (
             </div>
           ))}
         {!!person && <span className="mx-1">{person}</span>}
-        <button type="button" className="btn-close mx-1" aria-label="Close" />
+        <button
+          type="button"
+          className="btn-close mx-1"
+          aria-label="Close"
+          onClick={() => deleteWishItem(id)}
+        />
       </div>
     </div>
   </article>
 );
 
 WishItem.propTypes = {
+  id: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string.isRequired,
   quantity: PropTypes.number,
   location: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   person: PropTypes.string,
+  deleteWishItem: PropTypes.func,
 };
 
 export default WishItem;
