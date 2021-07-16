@@ -1,9 +1,20 @@
 import React from "react";
+import { BsPlusCircle } from "react-icons/bs";
 import WishItem from "./WishItem";
 
 const WishList = () => (
   <div>
-    <h2 className="mb-3">Wish List</h2>
+    <div className="d-flex justify-content-between align-items-center mb-3">
+      <h2>Wish List</h2>
+      <a
+        href="#"
+        className="link-secondary"
+        data-bs-toggle="modal"
+        data-bs-target="#wishListModal"
+      >
+        <BsPlusCircle className="fs-4" />
+      </a>
+    </div>
     {[...Array(60).keys()].map((idx) => (
       <WishItem
         key={idx}

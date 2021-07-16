@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const InventoryItem = ({ image, title, quantity, location, tags, date }) => (
   <article className="d-flex py-2 border-bottom">
